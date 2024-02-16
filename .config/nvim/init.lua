@@ -4,6 +4,11 @@ vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.o.hlsearch = false
 
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.smartindent = true
+
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
