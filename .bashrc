@@ -115,3 +115,5 @@ fi
 set -o vi
 shopt -s autocd
 shopt -s histverify
+export GPG_TTY=$(tty)
+
