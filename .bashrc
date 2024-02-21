@@ -117,3 +117,5 @@ shopt -s autocd
 shopt -s histverify
 export GPG_TTY=$(tty)
 eval "$(zoxide init bash)"
+eval "$(opam env --switch=default)"
+
