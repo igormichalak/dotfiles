@@ -1,9 +1,25 @@
 [shell]
 program = "/bin/bash"
 
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrains Mono"
+style = "Bold Italic"
+
 [colors.primary]
-background = '#002b36'
-foreground = '#839496'
+background = '#fdf6e3'
+foreground = '#586e75'
 
 [colors.normal]
 black   = '#073642'
