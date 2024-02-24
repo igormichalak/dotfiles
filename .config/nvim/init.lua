@@ -1,5 +1,10 @@
 --[[
 
+Simple, yet powerful Neovim config.
+Partly based on the great "kickstart.nvim".
+
+--------------------------------------
+
 Language/format support:
 
 Full (with LSP):
@@ -82,7 +87,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
     'n',
-    '<leader>fbc',
+    '<leader>fc',
     ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
     { noremap = true }
 )
