@@ -63,6 +63,12 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Functions.
+reload_configs() {
+    source "$HOME/.bashrc"
+    bind -f "$HOME/.inputrc"
+    echo "Reloaded \".bashrc\" and \".inputrc\"."
+}
+
 cmd_exists() {
     type "$1" &> /dev/null
 }
@@ -86,7 +92,7 @@ bind -x '"\C-r":"fzf_history"'
 
 # Handy aliases.
 alias config="$EDITOR $HOME/.bashrc"
-alias reload="source $HOME/.bashrc"
+alias reload='reload_configs'
 
 alias la='ls -A'
 alias ll='ls -lh'
