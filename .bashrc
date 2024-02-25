@@ -75,7 +75,7 @@ cmd_exists() {
 
 fzf_history() {
     if cmd_exists 'fzf'; then
-        local command_to_run="$(history | fzf --tac --no-sort | sed -E 's/ *[0-9]+ *//')"
+        local command_to_run="$(history | fzf --tac --no-sort --scheme=history | sed -E 's/ *[0-9]+ *//')"
         if [ -n "$command_to_run" ]; then
             READLINE_LINE="$command_to_run"
             READLINE_POINT="${#command_to_run}"
