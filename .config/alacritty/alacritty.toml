@@ -1,6 +1,9 @@
 [shell]
 program = "/bin/bash"
 
+[env]
+TERM = "xterm-256color"
+
 [font.normal]
 family = "JetBrains Mono"
 style = "Regular"
