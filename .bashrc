@@ -62,6 +62,14 @@ fi
 # Colored GCC warnings and errors.
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+cmd_exists() {
+    type "$1" &> /dev/null
+}
+
+fzf_history() {
+    eval ""
+}
+
 # Handy aliases.
 alias config="$EDITOR $HOME/.bashrc"
 alias reload="source $HOME/.bashrc"
@@ -76,6 +84,6 @@ alias mkd='mkdir -pv'
 alias ffmpeg='ffmpeg -hide_banner'
 
 # Load environment.
-eval "$(zoxide init bash)"
-eval "$(opam env --switch=default)"
+cmd_exists zoxide && eval "$(zoxide init bash)"
+cmd_exists opam && eval "$(opam env --switch=default)"
 
