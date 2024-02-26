@@ -78,6 +78,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { silent = true, noremap = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { silent = true, noremap = true })
 
 vim.api.nvim_set_keymap(
     'n',
