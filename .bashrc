@@ -24,6 +24,9 @@ PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\w${RED}]${RESET}$ "
 export GPG_TTY="$(tty)"
 export EDITOR='nvim'
 
+# Path.
+export PATH="$PATH:$HOME/.local/opt/odin"
+
 # Enable vi keybindings for command line editing.
 set -o vi
 
