@@ -26,6 +26,7 @@ export EDITOR='nvim'
 
 # Path.
 export PATH="$PATH:$HOME/.local/opt/odin"
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # Enable vi keybindings for command line editing.
 set -o vi
