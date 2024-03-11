@@ -23,8 +23,13 @@ PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\w${RED}]${RESET}$ "
 # Environment variables.
 export GPG_TTY="$(tty)"
 export EDITOR='nvim'
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path.
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+
 export PATH="$PATH:$HOME/.local/opt/odin"
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
