@@ -281,6 +281,12 @@ lspconfig.ocamllsp.setup { capabilities = capabilities }
 lspconfig.ols.setup { capabilities = capabilities }
 lspconfig.templ.setup { capabilities = capabilities }
 
+vim.filetype.add({
+    extension = {
+        templ = 'templ',
+    },
+})
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
