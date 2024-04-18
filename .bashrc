@@ -30,6 +30,7 @@ export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:$ANDROID_HOME/emulator"
 
+export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.local/opt/odin"
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
@@ -84,7 +85,7 @@ cmd_exists() {
 
 fzf_history() {
     if cmd_exists 'fzf'; then
-        local command_to_run="$(history | fzf --tac --no-sort --scheme=history | sed -E 's/ *[0-9]+ *//')"
+        local command_to_run="$(history | tac | sort -k 1.8 -u | sort -n | fzf --tac --no-sort --bind 'ctrl-l:toggle-sort' | sed -E 's/ *[0-9]+ *//')"
         if [ -n "$command_to_run" ]; then
             READLINE_LINE="$command_to_run"
             READLINE_POINT="${#command_to_run}"
@@ -102,6 +103,8 @@ bind -x '"\C-r":"fzf_history"'
 # Handy aliases.
 alias config="$EDITOR $HOME/.bashrc"
 alias reload='reload_configs'
+
+alias get_idf=". $HOME/.local/opt/esp-idf/export.sh"
 
 alias la='ls -A'
 alias ll='ls -lh'
