@@ -23,9 +23,11 @@ PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\w${RED}]${RESET}$ "
 # Environment variables.
 export GPG_TTY="$(tty)"
 export EDITOR='nvim'
+export PICO_SDK_PATH="$HOME/.local/opt/pico-sdk"
 
 # Path.
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/opt/odin"
 
 # Enable vi keybindings for command line editing.
@@ -122,4 +124,3 @@ fi
 if [ "$(hostname)" = "penguin" ]; then
     source ~/.bashrc_chromebook
 fi
-

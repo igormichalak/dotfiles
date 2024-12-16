@@ -37,7 +37,13 @@ vim.o.timeoutlen = 800
 vim.o.termguicolors = true
 vim.o.background = 'light'
 vim.o.completeopt = 'menuone,noselect'
+
 vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+vim.o.smarttab = true
+vim.o.autoindent = true
 
 local Plug = vim.fn['plug#']
 
@@ -168,6 +174,7 @@ vim.defer_fn(function()
             'dockerfile', 'glsl', 'go', 'hcl', 'html', 'javascript',
             'jsdoc', 'lua', 'nix', 'ocaml', 'odin', 'regex',
             'sql', 'templ', 'terraform', 'typescript', 'tsx', 'wgsl',
+            'vimdoc', 'markdown',
         },
         sync_install = false,
         auto_install = false,
@@ -246,7 +253,6 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
-lspconfig.clangd.setup { capabilities = capabilities }
 lspconfig.cssls.setup { capabilities = capabilities }
 lspconfig.dartls.setup { capabilities = capabilities }
 
@@ -286,6 +292,13 @@ vim.filetype.add({
         templ = 'templ',
     },
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'Makefile', 'go' },
+    callback = function()
+        vim.bo.expandtab = false
+    end
+});
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -346,8 +359,8 @@ cmp.setup {
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            -- elseif luasnip.expand_or_jumpable() then
+                -- luasnip.expand_or_jump()
             else
                 fallback()
             end
@@ -355,8 +368,8 @@ cmp.setup {
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            -- elseif luasnip.jumpable(-1) then
+                -- luasnip.jump(-1)
             else
                 fallback()
             end
