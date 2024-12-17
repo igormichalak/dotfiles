@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.bo.expandtab = false
     end,
-});
+})
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -128,7 +128,7 @@ require('lazy').setup({
                 desc = 'Search Recent Files',
             })
             vim.keymap.set('n', '<leader><space>', builtin.buffers, {
-                desc = 'Find existing buffers'
+                desc = 'Find existing buffers',
             })
             vim.keymap.set('n', '<leader>/', function()
                 builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -237,15 +237,11 @@ require('lazy').setup({
     },
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-        },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         opts = {},
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-        },
     },
 })
