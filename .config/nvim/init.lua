@@ -174,8 +174,8 @@ require('lazy').setup({
         main = 'nvim-treesitter.configs',
         opts = {
             ensure_installed = {
-                'bash', 'c', 'cpp', 'dockerfile', 'glsl', 'go',
-                'lua', 'ocaml', 'sql', 
+                'bash', 'c', 'cpp', 'cuda', 'dockerfile', 'glsl', 'go',
+                'lua', 'ocaml', 'sql', 'verilog',
             },
             sync_install = false,
             auto_install = false,
