@@ -23,7 +23,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
@@ -35,8 +35,32 @@ vim.opt.completeopt = 'menuone,noselect'
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_better_performance = 1
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '*',
+    callback = function()
+        vim.cmd([[match ErrorMsg '\t\+$']])
+    end,
+})
+
+vim.api.nvim_create_autocmd('BufLeave', {
+    pattern = '*',
+    callback = function()
+        vim.cmd([[match none]])
+    end,
+})
+
+vim.filetype.add({
+    extension = {
+        gohtml = 'html',
+    },
+})
+
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'Makefile', 'go' },
+    pattern = { 'Makefile', '*.go' },
     callback = function()
         vim.bo.expandtab = false
     end,
