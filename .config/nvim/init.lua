@@ -193,6 +193,31 @@ require('lazy').setup({
         end,
     },
     {
+        'neovim/nvim-lspconfig',
+        config = function()
+            vim.api.nvim_create_autocmd('LspAttach', {
+                callback = function(event)
+                    local map = function(keys, func, desc, mode)
+                        mode = mode or 'n'
+                        vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+                    end
+
+                    map('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+                    map('<leader>rn', vim.lsp.buf.rename, 'Rename')
+                    map('K', vim.lsp.buf.hover, 'Hover')
+                    map('<leader>fm', function()
+                        vim.lsp.buf.format { async = true }
+                    end, 'Format')
+                end,
+            })
+
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            local lspconfig = require('lspconfig')
+
+            lspconfig.gopls.setup { capabilities = capabilities }
+        end,
+    },
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         main = 'nvim-treesitter.configs',
