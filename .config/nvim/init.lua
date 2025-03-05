@@ -224,7 +224,7 @@ require('lazy').setup({
         opts = {
             ensure_installed = {
                 'bash', 'c', 'cpp', 'cuda', 'dockerfile', 'glsl', 'go',
-                'lua', 'ocaml', 'sql', 'verilog',
+                'lua', 'ocaml', 'odin', 'sql', 'verilog',
             },
             sync_install = false,
             auto_install = false,
